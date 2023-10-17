@@ -7,4 +7,9 @@ export class PopupPluginWeb extends WebPlugin implements PopupPluginPlugin {
     console.log('ECHO', options);
     return options;
   }
+
+  async showPopup(options: { message: string}): Promise<{ message: string }> {
+    console.log('Popup', options.message);
+    return options;
+  }
 }

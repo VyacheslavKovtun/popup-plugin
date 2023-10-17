@@ -15,4 +15,16 @@ public class PopupPluginPlugin: CAPPlugin {
             "value": implementation.echo(value)
         ])
     }
+
+
+    @objc func showPopup(_ call: CAPPluginCall) {
+        var messageText = call.getString("message") ?? ""
+        var popupMessage = UIAlertController(title: "Attention", message: messageText, preferredStyle: .alert)
+
+        self.present(popupMessage, animated: true, completion: nil)
+        call.resolve([
+            "value": messageText
+        ])
+    }
+    
 }
